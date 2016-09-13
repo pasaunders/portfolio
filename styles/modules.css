@@ -1,15 +1,23 @@
 .site-header {
   background: #AA3939;
+  min-width: 7em;
+  min-height: 6em;
 }
 
 .heading-group-h1 {
   float:left;
+  padding: 0 0 .2em 1em;
+}
+
+.tab-content {
+  background: #7A9F35
 }
 
 .icon-menu {
-  float: right;
-  transform: scale(4);
-  margin: 15px 15px 0px 0px;
+  position: absolute;
+  left: 80%;
+  font-size: 2.5em;
+  margin: 10px 10px;
 }
 
 .main-nav {
@@ -23,8 +31,8 @@
   clear: both;
 }
 
-.main-nav:hover {
-  display: inline-block;
+.main-nav:hover ul {
+  display: block;
 }
 
 .main-nav li {
@@ -34,17 +42,20 @@
   border-bottom: 1px solid #ccc;
 }
 
+#filters {
+  padding: 0;
+  list-style: none;
+}
+
 /* media responsive styles */
-@@media only screen and (min-width: 640px) {
+@media only screen and (min-width: 640px) {
   .icon-menu {
     display: none;
   }
 
   .main-nav ul {
-    width: 40%;
-    float: right;
-    margin-left: 20%;
-    display: inline-block;
+    margin-left: 10%;
+    display: block;
   }
 
   .main-nav li {

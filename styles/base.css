@@ -23,7 +23,8 @@ address {
 }
 
 article {
-
+  border-bottom: 2px solid black;
+  margin: 0 2.5%;
 }
 
 /*LINK STYLES*/
