@@ -11,5 +11,11 @@
 }
 
 #about {
+  /*display: none;*/
+}
+
+.template {
   display: none;
 }
+
+/* Changing layout when the menu is clicked*/
