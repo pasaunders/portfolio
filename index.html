@@ -18,29 +18,37 @@
         <div class="icon-menu"></div>
         <ul>
           <li class="nav-item" data-content="projects"><a href="#" class="icon-github"></a>Projects</li>
-          <li class="nav-item" data-content="links"><a href="#" class="icon-terminal"></a>Links</li>
           <li class="nav-item" data-content="about"><a href="#" class="icon-barcode"></a>About</li>
+          <li class="nav-item" data-content="links"><a href="#" class="icon-terminal"></a>Links</li>
         </ul>
       </nav>
     </header>
     <article class="article-entry" id="projects">
       <h2>Projects</h2>
       <a href="https://github.com/pasaunders" class="icon-github">My Projects</a>
+      <h2>some games I like.</h2>
+      <select id="medium-filter">
+        <option> -- filter by medium -- </option>
+      </select>
+      <select id="genre-filter">
+        <option> -- filter by genre -- </option>
+      </select>
+      <section class="template">
+        <header>
+          <h3>Name</h1>
+          </header>
+          <p class="medium">Medium</p>
+          <p class="genre">Genre</p>
+          <p class="whyGood">whyGood</p>
+          <a href="#" class="expand">More &rarr;</a>
+          <hr>
+        </section>
     </article>
     <article class="article-entry" id="links">
       <h2>Links will go here. Eventually</h2>
     </article>
-    <article class="article-entry" id="about">
-      <h2>About me: some games I like.</h2>
-      <section class="template">
-        <header>
-          <h3>Name</h1>
-        </header>
-        <p class="medium">Medium</p>
-        <p class="genre">Genre</p>
-        <p class="whyGood">whyGood</p>
-        <hr>  
-      </section>
+    <article class="articl'e-entry" id="about">
+      <h2>stuff goes here i guess</h2>
     </article>
     <footer>
       &copy; 2016 Patrick Saunders
@@ -48,6 +56,6 @@
     <script type="text/javascript" src="scripts/jquery-3.1.0.min.js"></script>
     <script type="text/javascript" src="scripts/gamelist.js"></script>
     <script type="text/javascript" src="scripts/games.js"></script>
-
+    <script type="text/javascript" src="scripts/projectview.js"></script>
   </body>
 </html>
