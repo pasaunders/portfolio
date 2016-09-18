@@ -22,5 +22,5 @@ gameList.forEach(function(gameEntry) {
 });
 
 games.forEach(function(gameEntry) {
-  $('#about').append(gameEntry.toHtml());
+  $('#projects').append(gameEntry.toHtml());
 });
