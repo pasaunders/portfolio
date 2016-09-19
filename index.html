@@ -10,6 +10,16 @@
     <link rel="stylesheet" href="styles/modules.css">
     <!-- Code Fellows favicon -->
     <link rel="icon" type="image/x-icon" href="https://i.imgur.com/7v5ASc8.png">
+    <script id= "game-template" type="text/x-handlebars-template">
+      <div>
+          <h3>{{name}}</h3>
+          <p class="medium">{{medium}}</p>
+          <p class="genre">{{genre}}</p>
+          <p class="whyGood">{{whyGood}}</p>
+          <a href="#" class="expand">More &rarr;</a>
+          <hr>
+      </div>
+    </script>
   </head>
   <body>
     <header class="main-heading">
@@ -33,16 +43,6 @@
       <select id="genre-filter">
         <option> -- filter by genre -- </option>
       </select>
-      <section class="template">
-        <header>
-          <h3>Name</h1>
-          </header>
-          <p class="medium">Medium</p>
-          <p class="genre">Genre</p>
-          <p class="whyGood">whyGood</p>
-          <a href="#" class="expand">More &rarr;</a>
-          <hr>
-        </section>
     </article>
     <article class="article-entry" id="links">
       <h2>Links will go here. Eventually</h2>
@@ -54,6 +54,7 @@
       &copy; 2016 Patrick Saunders
     </footer>
     <script type="text/javascript" src="scripts/jquery-3.1.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script>
     <script type="text/javascript" src="scripts/gamelist.js"></script>
     <script type="text/javascript" src="scripts/games.js"></script>
     <script type="text/javascript" src="scripts/projectview.js"></script>

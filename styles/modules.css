@@ -28,11 +28,23 @@
   display: block;;
 }
 
+.nav-item {
+  cursor: pointer;
+}
+
 .article-entry {
   display: block;
 }
 
 .whyGood {
+  display: none;
+}
+
+#links {
+  display: none;
+}
+
+#about {
   display: none;
 }
 
