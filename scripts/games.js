@@ -8,13 +8,9 @@ function Game (dataEntry) {
 };
 
 Game.prototype.toHtml = function () {
-  var $newGame = $('section.template').clone();
-  $newGame.find('h3').text(this.name);
-  $newGame.find('p.medium').text(this.medium);
-  $newGame.find('p.genre').text(this.genre);
-  $newGame.find('p.whyGood').text(this.whyGood);
-  $newGame.removeClass('template');
-  return $newGame;
+  var source = $('#game-template').html();
+  var template = Handlebars.compile(source);
+  return template(this);
 };
 
 gameList.forEach(function(gameEntry) {
