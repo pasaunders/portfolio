@@ -1,4 +1,3 @@
-var games = [];
 
 function Game (dataEntry) {
   this.name = dataEntry.name;
@@ -6,6 +5,7 @@ function Game (dataEntry) {
   this.genre = dataEntry.genre;
   this.whyGood = dataEntry.whyGood;
 };
+Game.allGames = [];
 
 Game.prototype.toHtml = function () {
   var source = $('#game-template').html();
@@ -13,10 +13,30 @@ Game.prototype.toHtml = function () {
   return template(this);
 };
 
-gameList.forEach(function(gameEntry) {
-  games.push(new Game(gameEntry));
-});
+//new code to use ajax to load data from JSON file
+Game.loadData = function(inputData) {
+  inputData.forEach(function(data) {
+    Game.allGames.push(new Game(data));
+    postGamesToHTML();
+  });
+};
 
-games.forEach(function(gameEntry) {
-  $('#projects').append(gameEntry.toHtml());
-});
+function loadGameDataFromFile () {
+  if (localStorage.gameList) {
+    Game.loadData(JSON.parse(localStorage.gameList));
+  }
+  else {
+    $.getJSON('data/gamelist.json', function(data) {
+      Game.loadData(data);
+      localStorage.gameList = JSON.stringify(data);
+    });
+  };
+};
+
+function postGamesToHTML() {
+  Game.allGames.forEach(function(gameEntry) {  //wrap this in a function and call it after I finish loading data
+    $('#projects').append(gameEntry.toHtml());
+  });
+};
+
+loadGameDataFromFile();
