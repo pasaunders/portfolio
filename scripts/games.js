@@ -1,42 +1,66 @@
+(function(module){
+  function Game (dataEntry) {
+    this.name = dataEntry.name;
+    this.medium = dataEntry.medium;
+    this.genre = dataEntry.genre;
+    this.whyGood = dataEntry.whyGood;
+  };
 
-function Game (dataEntry) {
-  this.name = dataEntry.name;
-  this.medium = dataEntry.medium;
-  this.genre = dataEntry.genre;
-  this.whyGood = dataEntry.whyGood;
-};
-Game.allGames = [];
+  Game.allGames = [];
 
-Game.prototype.toHtml = function () {
-  var source = $('#game-template').html();
-  var template = Handlebars.compile(source);
-  return template(this);
-};
+  Game.prototype.toHtml = function () { //takes a loaded game object and applies it to a handlebars template
+    var source = $('#game-template').html();
+    var template = Handlebars.compile(source);
+    return template(this);
+  };
 
-//new code to use ajax to load data from JSON file
-Game.loadData = function(inputData) {
-  inputData.forEach(function(data) {
-    Game.allGames.push(new Game(data));
-    postGamesToHTML();
-  });
-};
-
-function loadGameDataFromFile () {
-  if (localStorage.gameList) {
-    Game.loadData(JSON.parse(localStorage.gameList));
-  }
-  else {
-    $.getJSON('data/gamelist.json', function(data) {
-      Game.loadData(data);
-      localStorage.gameList = JSON.stringify(data);
+  Game.loadData = function(inputData) {
+    inputData.forEach(function(data) {
+      Game.allGames.push(new Game(data));
+      postGamesToHTML();
     });
   };
-};
 
-function postGamesToHTML() {
-  Game.allGames.forEach(function(gameEntry) {  //wrap this in a function and call it after I finish loading data
-    $('#projects').append(gameEntry.toHtml());
-  });
-};
+  function loadGameDataFromFile () { //loads data from gamelist.json
+    if (localStorage.gameList) {
+      Game.loadData(JSON.parse(localStorage.gameList));
+    }
+    else {
+      $.getJSON('data/gamelist.json', function(data) {
+        Game.loadData(data);
+        localStorage.gameList = JSON.stringify(data);
+      });
+    };
+  };
 
-loadGameDataFromFile();
+  function postGamesToHTML() { //a function that loops through my loaded game data and calls .tohtml for each one, then appends the result to the html with jQuery
+    Game.allGames.forEach(function(gameEntry) {
+      $('#projects').append(gameEntry.toHtml());
+    });
+  };
+
+  function buildFilters() {
+    populateFilters('medium');
+
+    populateFilters('genre');
+  };
+
+  function populateFilters(property) { // a function that takes data from Game.allGames, and pushes the unique properties into arrays. I'm trying to set it up to accept different paramaters to call different properties.
+    return Game.allGames.map(function(element){
+      console.log(element[property]);
+      return element[property];
+    })
+    .reduce(function(acc, next, idx, array) {
+      if (acc.indexOf(next) === -1) {
+        acc.push(next);
+        console.log(next);
+      }
+      return acc;
+    }, []);
+  };
+
+  loadGameDataFromFile();
+  buildFilters();
+  module.Game = Game;
+  module.populateFilters = populateFilters;
+})(window);
