@@ -41,7 +41,6 @@
 
   function buildFilters() {
     populateFilters('medium');
-
     populateFilters('genre');
   };
 
