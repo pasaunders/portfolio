@@ -1,3 +1,4 @@
 page('/', articleController.reveal);
-page('/about', aboutcontroller.reveal);
+page('/about', aboutController.reveal);
+page('/links', linksController.reveal);
 page();

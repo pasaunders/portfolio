@@ -2,16 +2,12 @@
   max-width: 80%;
 }
 
-#projects {
-
-}
-
 #links {
   display: none; /* hiding links by default */
 }
 
 #about {
-  /*display: none;*/
+  display: none;
 }
 
 /* Changing layout when the menu is clicked*/

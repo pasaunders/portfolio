@@ -17,8 +17,8 @@
   Game.loadData = function(inputData) {
     inputData.forEach(function(data) {
       Game.allGames.push(new Game(data));
-      postGamesToHTML();
     });
+    postGamesToHTML();
   };
 
   function loadGameDataFromFile () { //loads data from gamelist.json
@@ -46,13 +46,11 @@
 
   function populateFilters(property) { // a function that takes data from Game.allGames, and pushes the unique properties into arrays. I'm trying to set it up to accept different paramaters to call different properties.
     return Game.allGames.map(function(element){
-      console.log(element[property]);
       return element[property];
     })
     .reduce(function(acc, next, idx, array) {
       if (acc.indexOf(next) === -1) {
         acc.push(next);
-        console.log(next);
       }
       return acc;
     }, []);

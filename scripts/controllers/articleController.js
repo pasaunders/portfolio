@@ -2,9 +2,11 @@
   var articleController = {};
 
   articleController.reveal = function() {
-    $('#articles').show();
+    console.log('articleController called');
+    $('#projects').show();
     $('#about').hide();
+    $('#links').hide();
   };
 
-  module.articleController = aboutController;
+  module.articleController = articleController;
 })(window);
