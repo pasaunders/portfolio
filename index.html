@@ -20,6 +20,14 @@
           <hr>
       </div>
     </script>
+    <script id='project-template' type="text/x-handlebars-template">
+      <div>
+        <h3>{{projectName}}</h3>
+        <p class="updated">{{updated}}</p>
+        <p class="language">{{language}}</p>
+        <p class="description">{{description}}</p>
+      </div>
+    </script>
   </head>
   <body>
     <header class="main-heading">
@@ -36,6 +44,14 @@
     <article class="article-entry" id="projects">
       <h2>Projects</h2>
       <a href="https://github.com/pasaunders" class="icon-github">My Projects</a>
+      <ul class="gitProjects">
+        <li>projects list</li>
+      </ul>
+    </article>
+    <article class="article-entry" id="links">
+      <h2>Links will go here. Eventually.</h2>
+    </article>
+    <article class="article-entry" id="about">
       <h2>some games I like.</h2>
       <select id="medium-filter">
         <option> -- filter by medium -- </option>
@@ -44,12 +60,6 @@
         <option> -- filter by genre -- </option>
       </select>
     </article>
-    <article class="article-entry" id="links">
-      <h2>Links will go here. Eventually.</h2>
-    </article>
-    <article class="article-entry" id="about">
-      <h2>the about page i guess</h2>
-    </article>
     <footer>
       &copy; 2016 Patrick Saunders
     </footer>
@@ -57,10 +67,13 @@
     <script src="vendor/page.js"></script>
     <script type="text/javascript" src="vendor/jquery-3.1.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script>
+    <script src="githubToken.js"></script>
     <!-- model files -->
     <script type="text/javascript" src="scripts/models/games.js"></script>
     <!-- view files -->
     <script type="text/javascript" src="scripts/views/projectview.js"></script>
+    <script type="text/javascript" src="scripts/views/aboutview.js"></script>
+
     <!-- controller files -->
     <script type="text/javascript" src="scripts/controllers/aboutController.js"></script>
     <script type="text/javascript" src="scripts/controllers/articleController.js"></script>
