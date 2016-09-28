@@ -14,5 +14,11 @@
     });
   };
 
+  projects.withTheAttribute = function(myattribute) {
+    console.log('filter called');
+    return projects.allProjects.filter(function(proj) {
+      return proj['']
+    })
+  }
 
 })(window);
