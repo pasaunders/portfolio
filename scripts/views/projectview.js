@@ -1,15 +1,6 @@
 (function(module) {
   var projectView = {};
 
-  projectView.menuHandler = function () { //allows the user to switch between 'pages' on the site by clicking menu buttons
-    $('li.nav-item').on('click', function(event) {
-      console.log(this);
-      event.preventDefault();
-      $('.article-entry').hide();
-      $('#' + $(this).attr('data-content')).fadeIn();
-    });
-  };
-
   projectView.moreLessHandler = function () {  //uses jQuery to allow the user to expand and contract articles by clicking a div, then changes the div to say more or less
     $('article#projects').on('click', 'a.expand', function(event) {
       var $anchor = $(this);
@@ -26,7 +17,7 @@
     });
   };
 
-  projectView.filterHandler = function () { //incomplete handler for filtering articles based on medium and genre properties
+  // projectView.filterHandler = function () { //incomplete handler for filtering articles based on medium and genre properties
     // $('article#projects').children('section').not('.template').each(function() {
     //   console.log(this);
     //   var gameMedium, gameGenre, optionTag;
@@ -37,10 +28,9 @@
     //   optionTag = '<option value="' + gameGenre + '">' + gameGenre + '</option>';
     //   $('#genre-filter').append(optionTag);
     // });
-  };
+  // };
 
   module.projectView = projectView;
-  projectView.menuHandler();
   projectView.moreLessHandler();
-  projectView.filterHandler();
+  // projectView.filterHandler();
 })(window);
