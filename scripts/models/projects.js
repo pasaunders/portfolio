@@ -17,8 +17,8 @@
   projects.withTheAttribute = function(myattribute) {
     console.log('filter called');
     return projects.allProjects.filter(function(proj) {
-      return proj['']
+      return proj['language']
     })
   }
-
+  module.projects = projects;
 })(window);

@@ -1,7 +1,7 @@
 (function(module){
   var projectView = {};
 
-  var projectCompile = Handebars.compile($('#project-template').html());
+  var projectCompile = Handlebars.compile($('#project-template').html());
 
   projectView.showProject = function() {
     $('#projects .gitProjects').empty().append(

@@ -22,10 +22,11 @@
     </script>
     <script id='project-template' type="text/x-handlebars-template">
       <div>
-        <h3>{{projectName}}</h3>
+        <h3>{{name}}</h3>
         <p class="updated">{{updated}}</p>
         <p class="language">{{language}}</p>
         <p class="description">{{description}}</p>
+        <hr>
       </div>
     </script>
   </head>
@@ -70,6 +71,7 @@
     <script src="githubToken.js"></script>
     <!-- model files -->
     <script type="text/javascript" src="scripts/models/games.js"></script>
+    <script type="text/javascript" src="scripts/models/projects.js"></script>
     <!-- view files -->
     <script type="text/javascript" src="scripts/views/projectview.js"></script>
     <script type="text/javascript" src="scripts/views/aboutview.js"></script>
