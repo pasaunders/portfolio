@@ -10,16 +10,6 @@
       })
     ).done(timingCheck);
   };
-    // $.ajax({
-    //   url: 'https://api.github.com/users/pasaunders/repos',
-    //   type: 'GET',
-    //   headers: {'Authorization': 'token ' + githubToken},
-    //   success: function(data, message, xhr) {
-    //     projects.allProjects = data;
-    //     timingCheck();
-    //   }
-    // });
-  };
 
   projects.withTheAttribute = function(myattribute) {
     console.log('filter called');
