@@ -3,15 +3,22 @@
   projects.allProjects = []; //create an array property to hold the list of projects
 
   projects.requestProjects = function(timingCheck) {
-    $.ajax({
-      url: 'https://api.github.com/users/pasaunders/repos',
-      type: 'GET',
-      headers: {'Authorization': 'token ' + githubToken},
-      success: function(data, message, xhr) {
+    $.when(
+      $.get('github/users/pasaunders/repos')
+      .done(function(data) {
         projects.allProjects = data;
-        timingCheck();
-      }
-    });
+      })
+    ).done(timingCheck);
+  };
+    // $.ajax({
+    //   url: 'https://api.github.com/users/pasaunders/repos',
+    //   type: 'GET',
+    //   headers: {'Authorization': 'token ' + githubToken},
+    //   success: function(data, message, xhr) {
+    //     projects.allProjects = data;
+    //     timingCheck();
+    //   }
+    // });
   };
 
   projects.withTheAttribute = function(myattribute) {
