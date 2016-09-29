@@ -35,7 +35,7 @@
 
   function postGamesToHTML() { //a function that loops through my loaded game data and calls .tohtml for each one, then appends the result to the html with jQuery
     Game.allGames.forEach(function(gameEntry) {
-      $('#projects').append(gameEntry.toHtml());
+      $('#about').append(gameEntry.toHtml());
     });
   };
 
